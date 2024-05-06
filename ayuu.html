@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+    <style>
+        body{
+            background: url(https://en.idei.club/uploads/posts/2023-06/1687666211_en-idei-club-p-restaurant-luxury-outdoor-dizain-instagram-29.jpg)no-repeat;
+            background-size: 100% 100%;
+            height: 700px;
+        }
+        h1{
+            font-size: 40px;
+            color: rgb(176, 36, 36);
+            font-weight: bold;
+            font-family: cursive;
+            text-align: center;
+
+        }
+        .frm{
+            background-color: transparent;
+            height: 500px;
+            width: 400px;
+
+        }
+        label{
+
+            color: whitesmoke;
+        }
+        input{
+            background: transparent;
+
+            border-bottom: 2px solid wheat;
+            border-radius: none;
+
+        }
+        .table{
+          background-color: rgba(0, 0, 0, 0.667);
+          height: 400px;
+          width: 800px;
+          border-radius: 50px 50px;
+
+        }
+        .data{
+        color:white;
+        font-size:20px;
+        text-align: center;
+       margin:10px;
+        }
+        .foot{
+        background: url("https://avatars.mds.yandex.net/i?id=6f243735eddcaeaee91c16c8aa6e1628d63cb900-8356382-images-thumbs&n=13") no-repeat;
+        background-size: 100% 100%;
+        height:300px;
+        width:100%;
+
+        }
+    </style>
+  </head>
+  <body>
+  <div class="container-fluid bgn">
+    <div class="row">
+      <div class="col-sm-12 p-0">
+        <!-- first navbar start -->
+        <nav class="navbar navbar-expand-lg navbar-light bgn">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+              <img src="https://avatars.mds.yandex.net/i?id=7b1cbf0ec652fa4da052d91382ea8770cbcb1714-4611905-images-thumbs&n=13" alt="" width="60" height="64" class="d-inline-block align-text-top">
+
+            </a>
+            <a class="navbar-brand spn" href="#"><span style="color: rgb(188, 36, 155); font-size: 30px; font-family: cursive; font-weight: bold;">Ayushi Cafe</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+
+                <li class="nav-item">
+                  <a class="nav-link active spn " aria-current="page" href="index.html"><span style="color:  rgb(28, 169, 65); font-size: 30px; font-weight: bold;">Home</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active spn " aria-current="page" href="Review.html"><span style="color:  rgb(27, 186, 69);  font-size: 30px; font-weight: bold;">Review</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active spn " href="Menu.html"><span style="color:  rgb(36, 192, 78);  font-size: 30px; font-weight: bold;">Menu</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active spn" href="contact.html"><span style="color: rgb(31, 178, 70);  font-size: 30px; font-weight: bold;">Contact's</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active spn" href="#"><span style="color:  rgb(25, 170, 64); font-size: 30px; font-weight: bold;">6307494646</span></a>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- first navbar end -->
+      </div>
+    </div>
+
+    <div class="row ">
+        <h1>Show Data</h1>
+        <div class="col-lg-12">
+       <form action="../cafecode/" method="post">
+           {% csrf_token %}
+            <div class="col-sm-6 table"><br>
+
+
+                <table class=" data" >
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Instert New Data</th>
+            <th>Delete Data</th>
+        </tr>
+        {% for x in result %}
+        <tr>
+            <td>{{ x.id }}</td>
+            <td>{{ x.name }}</td>
+            <td>{{ x.email }}</td>
+            <td>{{ x.phone }}</td>
+           <td><a href="../editcafe/{{ x.id }}">Insert Data</a> </td>
+           <td><a href="../delete/{{ x.id }}">Delete</a></td>
+
+        </tr>
+        {% endfor %}
+                </table>
+        </div>
+       </form>
+    </div>
+  </div>
+  <br><br><br><br>
+    <!--footer------start------->
+
+      <div class="row foot">
+          <div class="col-sm-4">
+
+          </div>
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4"></div>
+      </div>
+          </div>
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
